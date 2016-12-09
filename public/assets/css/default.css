@@ -1,0 +1,43 @@
+/*
+   Custon CSS
+   ==========
+*/
+
+/* ------------------------
+   Layout
+   ------------------------ */
+body{
+    padding-top: 80px;
+    
+    font-family: Myriad;
+    font-size: 20px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+}
+
+img {
+    width: 70px;
+    height: 70px;
+    margin-top:-10px;
+}
+
+footer{
+    background: #222;
+    color: #eee;
+    font-size: 11px;
+    padding: 20px;
+}
+
+#tableHeading{
+    background: #222;
+    color: #eee;
+}
+
+/* ------------------------
+   Typography
+   ------------------------ */
+ul.unstyled{
+    list-style: none;
+    padding: 0;
+}
