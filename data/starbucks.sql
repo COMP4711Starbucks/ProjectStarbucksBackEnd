@@ -24,6 +24,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `ci_sessions`
 --
 
+DROP TABLE IF EXISTS `ci_sessions`;
 CREATE TABLE `ci_sessions` (
   `id` varchar(128) NOT NULL,
   `ip_address` varchar(45) NOT NULL,
@@ -31,21 +32,19 @@ CREATE TABLE `ci_sessions` (
   `data` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
----
---- Table structure for table 'Inventories'
----
+--
+-- Table structure for table `Inventories`
+--
 
-DROP TABLE IF EXISTS 'Inventories';
-CREATE TABLE 'Inventories' (
-    'id' int NOT NULL AUTO_INCREMENT,
-    'name' varchar(64) NOT NULL,
-    'quantity' varchar(11) NOT NULL
+DROP TABLE IF EXISTS `Inventories`;
+CREATE TABLE `Inventories` (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `name` varchar(64) NOT NULL,
+    `quantity` varchar(11) NOT NULL,
+    PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-ALTER TABLE 'Inventories'
-  ADD PRIMARY KEY (`id`);
-
-INSERT INTO 'Inventories' ('name', 'quantity') VALUES
+INSERT INTO `Inventories` (`name`, `quantity`) VALUES
 ('Milk', 1000),
 ('Ice', 1000),
 ('Sugar', 1000),
@@ -68,22 +67,20 @@ INSERT INTO 'Inventories' ('name', 'quantity') VALUES
 ('Spiced Mocha Topping', 1000);
 
 
----
---- Table structure for table 'Menu'
----
+--
+-- Table structure for table `Menu`
+--
 
-DROP TABLE IF EXISTS 'Menu';
-CREATE TABLE 'Menu' (
-    'id' int NOT NULL AUTO_INCREMENT,
-    'name' varchar(64) NOT NULL,
-    'description' text NOT NULL,
-    'price' decimal(20,2) NOT NULL
+DROP TABLE IF EXISTS `Menu`;
+CREATE TABLE `Menu` (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `name` varchar(64) NOT NULL,
+    `description` text NOT NULL,
+    `price` decimal(20,2) NOT NULL,
+    PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-ALTER TABLE 'Menu'
-  ADD PRIMARY KEY ('id');
-
-INSERT INTO 'Menu' ('name', 'description', 'price') VALUES
+INSERT INTO `Menu` (`name`, `description`, `price`) VALUES
 ('Caramel Macchiato', 'Freshly steamed milk with vanilla-flavored syrup is marked with espresso and topped with caramel drizzle for an oh-so-sweet finish.', 3.49),
 ('Cappuccino', 'Dark, rich espresso lies in wait under a smoothed and stretched layer of thick foam. It is truly the height of our baristas craft.', 3.99),
 ('Latte', 'Our dark, rich espresso balanced with steamed milk and a light layer of foam. A perfect milk forward warm up.', 4.35),
@@ -93,23 +90,21 @@ INSERT INTO 'Menu' ('name', 'description', 'price') VALUES
 ('Chocolate Mocha', 'Our signature espresso meets white chocolate sauce and steamed milk, then is finished off with sweetened whipped cream in this chocolate delight.', 3.59);
 
 
----
---- Table structure for table 'Recipes'
----
+--
+-- Table structure for table `Recipes`
+--
 
-DROP TABLE IF EXISTS 'Recipes';
-CREATE TABLE 'Recipes' (
-    'menu_id' int NOT NULL,
-    'inventory_id' int NOT NULL,
-    'quantity' varchar(3) NOT NULL,
-    FOREIGN KEY ('inventory_id') REFERENCES 'Inventories' ('id'),
-    FOREIGN KEY ('menu_id') REFERENCES 'Menu' ('id')
+DROP TABLE IF EXISTS `Recipes`;
+CREATE TABLE `Recipes` (
+    `menu_id` int NOT NULL,
+    `inventory_id` int NOT NULL,
+    `quantity` varchar(3) NOT NULL,
+    PRIMARY KEY (`menu_id`,`inventory_id`),
+    FOREIGN KEY (`inventory_id`) REFERENCES `Inventories` (`id`),
+    FOREIGN KEY (`menu_id`) REFERENCES `Menu` (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-ALTER TABLE 'Recipes'
-  ADD PRIMARY KEY ('menu_id','inventory_id');
-
-INSERT INTO 'Recipes' ('menu_id', 'inventory_id', 'quantity') VALUES
+INSERT INTO `Recipes` (`menu_id`, `inventory_id`, `quantity`) VALUES
 (1, 1, 1),
 (1, 2, 1),
 (1, 3, 1),
@@ -132,7 +127,7 @@ INSERT INTO 'Recipes' ('menu_id', 'inventory_id', 'quantity') VALUES
 (7, 20, 1);
 
 --
--- Table structure for table 'orders'
+-- Table structure for table `orders`
 --
 
 DROP TABLE IF EXISTS `Orders`;
@@ -150,8 +145,8 @@ CREATE TABLE `Orderitems` (
   `order_id` int(11) NOT NULL,
   `menu_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
-  FOREIGN KEY ('order_id') REFERENCES 'Orders' ('id'),
-  FOREIGN KEY ('menu_id') REFERENCES 'Menu' ('id')
+  FOREIGN KEY (`order_id`) REFERENCES `Orders` (`id`),
+  FOREIGN KEY (`menu_id`) REFERENCES `Menu` (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 ALTER TABLE `Orderitems`
