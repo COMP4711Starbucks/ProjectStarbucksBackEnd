@@ -280,7 +280,7 @@ class MY_Model extends CI_Model implements Data_mapper {
 		$query = $this->db->get($this->_tableName);
 		return $query->result();
 	}
-
+ 
 	// Return all records as a result set
 	function results()
 	{

@@ -4,12 +4,12 @@
  *
  * @author lizewu
  */
-class Recipes extends CI_Model {
+class Recipes extends MY_Model2 {
 
 	// Constructor
 	public function __construct(){
             
-            parent::__construct();
+            parent::__construct("Recipes","menu_id","inventory_id");
 	}
 
 //	// retrieve a single menu
@@ -53,17 +53,22 @@ class Recipes extends CI_Model {
 //            return null;
 //	}
 //        
-//        public function names(){
-//           $name = array();
-//            // iterate over the data until we find the one we want
-//            foreach ($this->data as $record){
-//                if (!in_array($record['menu'], $name)){
-//                    $names[] = array('id' => $record['id'], 'name' => $record['menu']);
-//                    $name[] = $record['menu'];
-//                }
-//            }
-//            return $names;
-//	}
+        public function names(){
+           $name = array();
+           $names = array();
+           $result = $this->all();
+           $i = 0;
+          
+            // iterate over the data until we find the one we want
+            foreach ($result as $record){ 
+                if (!in_array($record->menu_id, $name)){
+                    $names[] = array('id' => $i++, 'name' => $record->menu_id);
+                    $name[] = $record->menu_id;
+                }
+            }
+            
+            return $names;
+	}
   
 }
 
