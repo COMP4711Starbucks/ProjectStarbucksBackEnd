@@ -10,12 +10,12 @@
             </tr>
         </thead>
         <tbody>
-            <div class="row menucat">
+            {names}
                 <tr>
                   <td>{id}</td> 
                   <td><a href="recipe/{id}">{name}</a></td>
                 </tr>
-            </div>
+            {/names}
         </tbody>
     </table>
 </div>
