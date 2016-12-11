@@ -2,10 +2,12 @@
     <!-- Default panel contents -->
     <div class="panel-heading" id="tableHeading">
         <h1>{name}</h1>
-        <a class="btn btn-default" role="button" href="/recipe/detail/addItem/{id}">add</a>
+        {error_messages}
     </div>
     <!-- Table -->
+    <form action="/recipe/detail/add" method="post">
     <table class="table">
+        
         <thead>
             <tr>
                 <th>Item</th> 
@@ -13,12 +15,13 @@
             </tr>
         </thead>
         <tbody>
-            {detail}
                 <tr>
-                  <td><a class="btn btn-default" role="button" href="/recipe/edit/{id}-{item}">{itemname}</a></td> 
-                  <td>{Quantity}</td>
+                  <td>{fname}</td> 
+                  <td>{fquantity}</td>
                 </tr>
-            {/detail}
         </tbody>
+        
     </table>
+        {zsubmit} <a class="btn btn-default" role="button" href="/recipe/detail/cancel">Cancel</a>
+    </form>
 </div>

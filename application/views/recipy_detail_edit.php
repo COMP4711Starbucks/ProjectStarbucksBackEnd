@@ -2,9 +2,10 @@
     <!-- Default panel contents -->
     <div class="panel-heading" id="tableHeading">
         <h1>{name}</h1>
+        {error_messages}
     </div>
     <!-- Table -->
-    <form action="#" method="post">
+    <form action="/recipe/detail/save" method="post">
     <table class="table">
         
         <thead>
@@ -21,10 +22,8 @@
         </tbody>
         
     </table>
-        {zsubmit} <a class="btn btn-default" role="button" href="recipe/detail/cancel">Cancel</a>
-        <a class="btn btn-default" role="button" href="recipe/detail/delete">Delete</a>
-        <a class="btn btn-default" role="button" href="recipe/detail/add">Add a new recipe item</a>
-        
+        {zsubmit} <a class="btn btn-default" role="button" href="/recipe/detail/cancel">Cancel</a>
+        <a class="btn btn-default" role="button" href="/recipe/detail/delete">Delete</a>
     </form>
 </div>
 
