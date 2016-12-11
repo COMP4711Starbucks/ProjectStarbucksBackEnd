@@ -7,32 +7,21 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Beverage</th>
+                <th>Menu Items</th>
+                <th>Description</th>
+                <th>Price</th>
             </tr>
         </thead>
         <tbody>
-            {drink}
+            {content}
             <tr>
-                <td><a href="menu{href}">{name}</a></td>
+                <td><a href="{name}">{name}</a></td>
+                <td>{description}</td>
+                <td>{price}</td>
             </tr>
-            {/drink}   
+            {/content}
         </tbody>
     </table>
     
     <br>
-    
-    <table class="table">
-    <thead>
-            <tr>
-                <th>Food</th>
-            </tr>
-        </thead>
-        <tbody>
-            {food}
-            <tr>
-                <td><a href="menu{href}">{name}</a></td>
-            </tr>
-            {/food}
-        </tbody>
-    </table>
 </div>
