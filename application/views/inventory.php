@@ -14,7 +14,7 @@
             {ingreds}
                 <tr>
                     <td>{id}</td>
-                    <td><a href="inventory/{href}">{name}</a></td>
+                    <td><a href="inventory/{id}">{name}</a></td>
                     <td>{quantity}</td>
                 </tr>
             {/ingreds}
