@@ -21,6 +21,11 @@ class Welcome extends Application
      */
     public function index()
     {
+        $userrole = $this->session->userdata('userrole');
+        if ($userrole == 'guest') {
+            redirect('/unauthorize');
+        }
+        
         // get the all the ingredents from out model
         $source = $this->inventories->all();
 
@@ -29,6 +34,4 @@ class Welcome extends Application
         
         $this->render(); 
     }
-        
-
 }

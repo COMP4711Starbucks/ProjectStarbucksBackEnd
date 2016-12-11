@@ -20,13 +20,6 @@ img {
     margin-top:-10px;
 }
 
-footer{
-    background: #222;
-    color: #eee;
-    font-size: 11px;
-    padding: 20px;
-}
-
 #tableHeading{
     background: #222;
     color: #eee;
@@ -129,8 +122,4 @@ footer{
 /* ------------------------
    Typography
    ------------------------ */
-ul.unstyled{
-    list-style: none;
-    padding: 0;
-}
 
