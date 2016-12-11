@@ -11,7 +11,7 @@ class Inventories extends MY_Model {
     }
 
     // retrieve a single inventory by passing id
-    public function get($which)
+    /*public function get($which)
     {
         // iterate over the data until we find the one we want
         foreach ($this->data as $record)
@@ -50,4 +50,6 @@ class Inventories extends MY_Model {
         }
         return null;
     }
+     * 
+     */
 }

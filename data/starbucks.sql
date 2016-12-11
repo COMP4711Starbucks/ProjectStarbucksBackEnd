@@ -77,17 +77,18 @@ CREATE TABLE `Menu` (
     `name` varchar(64) NOT NULL,
     `description` text NOT NULL,
     `price` decimal(20,2) NOT NULL,
+    `picture` varchar(100) NOT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-INSERT INTO `Menu` (`name`, `description`, `price`) VALUES
-('Caramel Macchiato', 'Freshly steamed milk with vanilla-flavored syrup is marked with espresso and topped with caramel drizzle for an oh-so-sweet finish.', 3.49),
-('Cappuccino', 'Dark, rich espresso lies in wait under a smoothed and stretched layer of thick foam. It is truly the height of our baristas craft.', 3.99),
-('Latte', 'Our dark, rich espresso balanced with steamed milk and a light layer of foam. A perfect milk forward warm up.', 4.35),
-('Mocha', 'We combine our rich, full-bodied espresso with bittersweet mocha sauce and steamed milk, then top it off with sweetened whipped cream. The classic coffee drink to satisfy your sweet tooth.', 3.79),
-('Pumpkin Spice Latte', 'Our signature espresso and milk are highlighted by flavor notes of pumpkin, cinnamon, nutmeg and clove to create this incredible beverage thats a fall favorite. Enjoy it topped with whipped cream and real pumpkin pie spices.', 4.99),
-('White Chocolate Mocha', 'Our signature espresso meets white chocolate sauce and steamed milk, then is finished off with sweetened whipped cream in this white chocolate delight.', 4.99),
-('Chocolate Mocha', 'Our signature espresso meets white chocolate sauce and steamed milk, then is finished off with sweetened whipped cream in this chocolate delight.', 3.59);
+INSERT INTO `Menu` (`name`, `description`, `price`, `picture`) VALUES
+('Caramel Macchiato', 'Freshly steamed milk with vanilla-flavored syrup is marked with espresso and topped with caramel drizzle for an oh-so-sweet finish.', 3.49, '1.jpg'),
+('Cappuccino', 'Dark, rich espresso lies in wait under a smoothed and stretched layer of thick foam. It is truly the height of our baristas craft.', 3.99, '2.jpg'),
+('Latte', 'Our dark, rich espresso balanced with steamed milk and a light layer of foam. A perfect milk forward warm up.', 4.35, '3.jpg'),
+('Mocha', 'We combine our rich, full-bodied espresso with bittersweet mocha sauce and steamed milk, then top it off with sweetened whipped cream. The classic coffee drink to satisfy your sweet tooth.', 3.79, '4.jpg'),
+('Pumpkin Spice Latte', 'Our signature espresso and milk are highlighted by flavor notes of pumpkin, cinnamon, nutmeg and clove to create this incredible beverage thats a fall favorite. Enjoy it topped with whipped cream and real pumpkin pie spices.', 4.99, '5.jpg'),
+('White Chocolate Mocha', 'Our signature espresso meets white chocolate sauce and steamed milk, then is finished off with sweetened whipped cream in this white chocolate delight.', 4.99, '6.jpg'),
+('Chocolate Mocha', 'Our signature espresso meets white chocolate sauce and steamed milk, then is finished off with sweetened whipped cream in this chocolate delight.', 3.59, '7.jpg');
 
 
 --
