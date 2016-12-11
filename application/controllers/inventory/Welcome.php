@@ -23,16 +23,8 @@ class Welcome extends Application
     {
         // get the all the ingredents from out model
         $source = $this->inventories->all();
-         
-        $ingreds = array();
-        
-        // build an array of formatted cells for them
-        foreach($source as $cell){
-            $href = preg_replace("/[\s]/", "-", $cell['name']);
-            $ingreds[] = array('id' => $cell['id'], 'name' => $cell['name'], 'quantity' => $cell['quantity'], 'href' => $href);
-        }
-        
-        $this->data['ingreds'] = $ingreds;
+
+        $this->data['ingreds'] = $source;
         $this->data['pagebody'] = 'inventory';
         
         $this->render(); 
