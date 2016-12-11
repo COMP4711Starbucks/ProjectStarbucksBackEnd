@@ -18,7 +18,7 @@ class Welcome extends Application
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index()
-	{   
+	{
             $this->data['pagebody'] = 'welcome_message';
             
             $menu = $this->menu->all();
