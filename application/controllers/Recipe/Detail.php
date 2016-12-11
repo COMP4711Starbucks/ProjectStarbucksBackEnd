@@ -65,17 +65,10 @@ class Detail extends Application{
             echo "404";
             return;
         }
-        $cats = $this->recipes->getNames();
-        $already = $this->recipes->getItems($key);
-        foreach($cats as $code){ 
-            if($key1 == $code || !(in_array($code, $already))){
-              $codes[$code] = $code;  
-            }
-            
-        }
-        $this->data['name'] = $key;
+        
+        $this->data['name'] = $this->recipes->getName($key);
         $this->data['zsubmit'] = makeSubmitButton('Save', 'Submit changes');
-        $this->data['fname'] = makeCombobox('', 'inventory_id', $this->recipes->getName($key),$codes);
+        $this->data['fname'] =  $this->recipes->getItemName($key1);
         $this->data['pagebody'] = 'recipy_detail_edit';
         // show the editing form
         $this->show_any_errors();
@@ -95,14 +88,14 @@ class Detail extends Application{
         $cats = $this->recipes->getNames();
         $already = $this->recipes->getItems($id);
         foreach($cats as $code){ 
-            if( !(in_array($code, $already))){
-              $codes[$code] = $code;  
+            if( !(in_array($code['id'], $already))){
+              $codes[$code['id']] = $code['item'];  
             } 
         }
         
-        $this->data['name'] = $id;
+        $this->data['name'] = $this->recipes->getName($id);
         $this->data['zsubmit'] = makeSubmitButton('Save', 'Submit changes');
-        $this->data['fname'] = makeCombobox('', 'inventory_id', $this->recipes->getName($id),$codes);
+        $this->data['fname'] = makeCombobox('', 'inventory_id', $this->recipes->getItem($id),$codes);
         $this->data['pagebody'] = 'recipy_detail_add';
         // show the editing form
         $this->show_any_errors();
@@ -177,8 +170,6 @@ class Detail extends Application{
         if ($key == null){
             $this->recipes->add($record);
         }else{
-            echo $record->menu_id;
-            echo $record->inventory_id;
             $this->recipes->update($record);
         }
         

@@ -24,8 +24,6 @@
     </table>
         {zsubmit} <a class="btn btn-default" role="button" href="/recipe/detail/cancel">Cancel</a>
         <a class="btn btn-default" role="button" href="/recipe/detail/delete">Delete</a>
-        <a class="btn btn-default" role="button" href="/recipe/detail/addItem/{name}">Add a new recipe item</a>
-        
     </form>
 </div>
 

@@ -15,7 +15,7 @@
         <tbody>
             {detail}
                 <tr>
-                  <td><a class="btn btn-default" role="button" href="/recipe/edit/{id}-{item}">{item}</a></td> 
+                  <td><a class="btn btn-default" role="button" href="/recipe/edit/{id}-{item}">{itemname}</a></td> 
                   <td>{Quantity}</td>
                 </tr>
             {/detail}
