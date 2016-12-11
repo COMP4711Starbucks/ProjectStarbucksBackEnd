@@ -20,6 +20,10 @@ class Welcome extends Application{
     
     public function index()
     {
+        $role = $this->session->userdata('userrole');
+            if($role == "guest"){
+                redirect('/unauthorize');
+            }
         //$this->load->model('recipes');
         $this->data['pagebody'] = 'recipy_list';
         $this->data['names'] = $this->recipes->names();
