@@ -1,14 +1,16 @@
 <div class="panel panel-default">
     <!-- Default panel contents -->
     <div class="panel-heading" id="tableHeading">
-        <h1>{name}</h1>
+        <div class='title'><h1>{name}</h1></div>
+        <div class='cartBox'>
         <?php
         $role = $this->session->userdata('userrole');
         
             if($role == "admin"){
-                echo '<a class="btn btn-default" role="button" href="/recipe/detail/addItem/{id}">add</a>';
+                echo '<a class="addBtn" role="button" href="/recipe/detail/addItem/{id}">add</a>';
             }
-        ?>        
+        ?>   
+        </div>
     </div>
     <!-- Table -->
     <table class="table">
