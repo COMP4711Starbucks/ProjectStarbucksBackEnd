@@ -57,4 +57,5 @@ $route['menu/(:any)'] = 'menu/saleorder/index/$1';
 $route['inventory'] = 'inventory/welcome/index';
 $route['inventory/(:any)'] = 'inventory/single/detail/$1';
 $route['recipe/(:num)'] = 'recipe/detail/detail/$1';
+$route['recipe/edit/(:any)'] = 'recipe/detail/edit/$1';
 $route['test/(:any)'] = 'welcome/counte/$1';

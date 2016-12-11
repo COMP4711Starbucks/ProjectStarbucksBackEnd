@@ -13,7 +13,9 @@
             {names}
                 <tr>
                   <td>{id}</td> 
-                  <td><a href="recipe/{id}">{name}</a></td>
+                  <td>
+                      <a href="recipe/{id}">{name}</a>
+                  </td>       
                 </tr>
             {/names}
         </tbody>
