@@ -198,7 +198,7 @@ class Detail extends Application{
 
         // only delete if editing an existing record
         if (! empty($record)) {
-            echo $key+"/"+$key1;
+            
             $this->recipes->delete($key,$key1);
         }
         $this->session->unset_userdata('key');
