@@ -12,17 +12,23 @@ class Recipes extends MY_Model2 {
             parent::__construct("Recipes","menu_id","inventory_id");
 	}
 
-//	// retrieve a single menu
-//	public function get($which)
-//	{
-//            // iterate over the data until we find the one we want
-//            foreach ($this->data as $record){
-//                    if ($record['id'] == $which){
-//                            return $record;
-//                    }
-//            }
-//            return null;
-//	}
+        function rules() {
+            $config = [
+                ['field'=>'quantity', 'label'=>'Item name', 'rules'=> 'required|integer']
+            ];
+            return $config;
+        }
+	// retrieve a single menu
+	public function get($which,$key)
+	{
+            // iterate over the data until we find the one we want
+            foreach ($this->all() as $record){
+                    if ($record->menu_id == $which && $record->inventory_id == $key){
+                            return $record;
+                    }
+            }
+            return null;
+	}
 //
 //	// retrieve all of the menus
 //	public function all()
@@ -71,6 +77,17 @@ class Recipes extends MY_Model2 {
             return null;
 	}
         
+        public function getItem($which){
+           $result = $this->all();
+            // iterate over the data until we find the one we want
+            foreach ($result as $record){
+                if ($record->menu_id == $which){
+                    return $record->inventory_id;
+                }
+            }
+            return null;
+	}
+        
         public function getItems($id){
            $result = $this->all();
            $names = array();
@@ -110,6 +127,19 @@ class Recipes extends MY_Model2 {
             
             return $names;
 	}
+        
+        public function valueForm($id){
+            $result = $this->all();
+          
+            // iterate over the data until we find the one we want
+            foreach ($result as $record){ 
+                if($record->menu_id == $id){ 
+                    return $record;
+                }
+            }
+            return null;
+            
+        }
   
 }
 
