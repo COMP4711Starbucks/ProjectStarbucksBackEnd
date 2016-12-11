@@ -20,8 +20,7 @@ class Welcome extends Application{
     
     public function index()
     {
-        $this->load->model('recipes');
-            
+        //$this->load->model('recipes');
         $this->data['pagebody'] = 'recipy_list';
         $this->data['names'] = $this->recipes->names();
         $this->render(); 
