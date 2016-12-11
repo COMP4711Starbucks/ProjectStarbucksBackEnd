@@ -1,22 +1,17 @@
+<h1>Orders Processed So Far</h1>
 
-<div class="panel panel-default">
-    <div class="panel-heading" id="tableHeading">
-        <h1>{name}</h1>
-    </div>
+<table class="table">
+    <tr>
+        <th>Order #</th>
+        <th>Date/time</th>
+        <th>Amount</th>
+    </tr>
     
-    <!-- Table -->
-    <table class="table">
-        <thead>
-            <tr>
-              <th>Price</th>
-              <th>Stock</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>${price}</td>
-                <td>{rest}</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+    {orders}
+    <tr>
+        <td><a href="/order/examine/{number}">{number}</a></td>
+        <td>{datetime}</td>
+        <td>{total}</td>
+    </tr>
+    {/orders}
+</table>

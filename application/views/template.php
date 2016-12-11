@@ -31,6 +31,7 @@
                             <li><a href="/menu">Menu</a></li>
                             <li><a href="/inventory">Inventory</a></li>
                             <li><a href="/recipe">Recipe</a></li>
+                            <li><a href="/sales_order">Orders</a></li>
                         </ul><!-- end nav -->
                     </div><!-- end myNavvar -->
                 </div><!-- container -->
