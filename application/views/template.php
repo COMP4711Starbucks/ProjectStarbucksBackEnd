@@ -29,9 +29,19 @@
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="/">Home</a></li>
                             <li><a href="/menu">Menu</a></li>
-                            <li><a href="/inventory">Inventory</a></li>
-                            <li><a href="/recipe">Recipe</a></li>
+                            
+                            <?php
+                                $role = $this->session->userdata('userrole');
+                                
+                                if($role == "admin" || $role == "user"){
+                                    echo "<li><a href=\"/inventory\">Inventory</a></li>";
+                                    echo "<li><a href=\"/recipe\">Recipe</a></li>";
+                                }
+                            ?>
+                            
                             <li><a href="/sales_order">Orders</a></li>
+                            <li><a href="/toggle">Toggle Role</a></li>
+                            <li><a>Role: {userrole}</a></li>
                         </ul><!-- end nav -->
                     </div><!-- end myNavvar -->
                 </div><!-- container -->
