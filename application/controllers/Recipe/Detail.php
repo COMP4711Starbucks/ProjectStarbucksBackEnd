@@ -24,7 +24,10 @@ class Detail extends Application{
     public function detail($id)
     {
         //$this->load->model('recipes');
-            
+        $role = $this->session->userdata('userrole');
+        if($role == "guest"){
+            redirect('/unauthorize');
+        }    
         $this->data['pagebody'] = 'recipy_detail';
         $this->data['detail']= $this->recipes->getRecipe($id);
         $this->data['name'] = $this->recipes->getName($id);
@@ -33,6 +36,10 @@ class Detail extends Application{
     }
     
     function edit($id = null) {
+        $role = $this->session->userdata('userrole');
+        if($role == "guest" || $role == "user"){
+                redirect('/unauthorize');
+        }
         if($id != null){
             $pieces = explode("-", $id);
             $menu = $pieces[0];
@@ -83,6 +90,10 @@ class Detail extends Application{
     }
     
     function addItem($id){
+        $role = $this->session->userdata('userrole');
+        if($role == "guest" || $role == "user"){
+                redirect('/unauthorize');
+        }
         $this->session->set_userdata('key',$id);
         $this->data['fquantity'] = makeTextField('', 'quantity', 1);
         $cats = $this->recipes->getNames();

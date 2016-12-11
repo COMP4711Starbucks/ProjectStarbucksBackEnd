@@ -21,7 +21,15 @@
         <tbody>
             {detail}
                 <tr>
-                  <td><a class="btn btn-default" role="button" href="/recipe/edit/{id}-{item}">{itemname}</a></td> 
+                    <?php
+                        $role = $this->session->userdata('userrole');
+
+                        if($role == "admin"){
+                              echo '<td><a class="btn btn-default" role="button" href="/recipe/edit/{id}-{item}">{itemname}</a></td>'; 
+                        }else{ 
+                            echo '<td>{itemname}</td>';
+                        }
+                    ?>  
                   <td>{Quantity}</td>
                 </tr>
             {/detail}
