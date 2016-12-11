@@ -11,13 +11,13 @@
         </thead>
         <tbody>
             <tr>
-                {Ingredents}
-                    <td>{name}</td>
-                {/Ingredents}
-                {Recipe}
-                     <td>{menu}</td>
-                {/Recipe}
+                <td rowspan="30">{inventoryName}</td>
             </tr>
+            {menu}
+                <tr>
+                    <td>{name}</td>
+                </tr>
+            {/menu}
         </tbody>
     </table>
 </div>
