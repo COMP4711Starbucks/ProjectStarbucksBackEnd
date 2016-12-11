@@ -63,3 +63,4 @@ $route['cart/checkout'] = 'menu/cart/checkout';
 $route['cart/cancel'] = 'menu/cart/cancel';
 $route['sales_order'] = 'menu/welcome/sales_order';
 $route['order/examine/(:num)'] = 'menu/welcome/examine/$1';
+$route['recipe/edit/(:any)'] = 'recipe/detail/edit/$1';
