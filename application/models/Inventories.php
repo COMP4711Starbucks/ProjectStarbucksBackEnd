@@ -10,6 +10,14 @@ class Inventories extends MY_Model {
         parent::__construct();
     }
 
+    public function rules() { 
+        $config = [
+            ['field'=>'name', 'label'=>'Inventory name', 'rules'=> 'required'], 
+            ['field'=>'quantity', 'label'=>'Inventory quantity', 'rules'=> 'required|integer']
+        ];
+        return $config; 
+    }
+    
     // retrieve recipes by passing inventory id
     public function getMenu($id)
     {
