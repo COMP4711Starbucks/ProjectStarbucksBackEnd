@@ -63,20 +63,4 @@ class Welcome extends Application{
         $this->data['pagebody'] = 'review_order';
         $this->render();
     }
-    
-    public function add_new_menu_item(){
-        $this->data['pagebody'] = 'add_menu_item';
-        
-        $userrole = $this->session->userdata('userrole');
-        if ($userrole != 'admin') {
-            $message = 'You are not authorized to access this page.';
-            $this->data['content'] = $message;
-            $this->render();
-            return;
-        }
-
-        $message = 'Get ready to fix stuff.';
-        $this->data['content'] = $message;
-        $this->render();
-    }
 }

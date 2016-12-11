@@ -33,13 +33,13 @@
                             <?php
                                 $role = $this->session->userdata('userrole');
                                 
-                                if($role == "admin" || $role == "user"){
+                                if($role != "guest"){
                                     echo "<li><a href=\"/inventory\">Inventory</a></li>";
                                     echo "<li><a href=\"/recipe\">Recipe</a></li>";
+                                    echo "<li><a href=\"/sales_order\">Orders</a></li>";
                                 }
                             ?>
                             
-                            <li><a href="/sales_order">Orders</a></li>
                             <li><a href="/toggle">Toggle Role</a></li>
                             <li><a>Role: {userrole}</a></li>
                         </ul><!-- end nav -->

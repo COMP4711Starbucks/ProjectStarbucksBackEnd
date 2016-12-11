@@ -13,7 +13,7 @@
             $role = $this->session->userdata('userrole');
         
             if($role == "admin"){
-                echo "<a href=\"menu/add-item\" class=\"addBtn\">Add New Item</a>";
+                echo "<a href=\"menu/create-item\" class=\"addBtn\">Add New Item</a>";
             }
         ?>
     </div>
@@ -27,6 +27,13 @@
 
     <div class="item-name">
         {name}
+        <?php
+            $role = $this->session->userdata('userrole');
+            
+            if($role == "admin"){
+                echo '<a class="btn btn-default" role="button" href="/menu-item-delete/{id}">Delete</a>';
+            }
+        ?>
     </div>
 
     <div class="item-description">
