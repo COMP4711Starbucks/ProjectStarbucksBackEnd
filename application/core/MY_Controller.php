@@ -36,8 +36,8 @@ class Application extends CI_Controller
 	 */
 	function render($template = 'template')
 	{
-		$this->data['content'] = $this->parser->parse($this->data['pagebody'], $this->data, true);
-		$this->parser->parse('template', $this->data);
+            $this->data['content'] = $this->parser->parse($this->data['pagebody'], $this->data, true);
+            $this->parser->parse('template', $this->data);
 	}
 
 }

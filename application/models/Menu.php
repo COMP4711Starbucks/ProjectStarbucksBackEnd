@@ -24,6 +24,15 @@ class Menu extends MY_Model{
         return $query->result();
     }
     
+    function rules() {
+        $config = [
+            ['field'=>'name', 'label'=>'Item name', 'rules'=> 'required'],
+            ['field'=>'description', 'label'=>'Item description', 'rules'=> 'required|max_length[256]'],
+            ['field'=>'price', 'label'=>'Item price', 'rules'=> 'required|decimal']
+        ];
+        return $config;
+    }
+    
     /*
     // find and return item by name
     public function find($name){

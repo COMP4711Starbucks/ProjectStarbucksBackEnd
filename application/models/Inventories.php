@@ -35,7 +35,7 @@ class Inventories extends MY_Model {
         
         foreach($recipe as $r) {
             foreach($menus as $m) {
-                if($r->menu_id == $id){
+                if($r->menu_id == $m->id){
                         $menu[] = $m;
                 }
             }
