@@ -7,6 +7,16 @@
     <div class="cartBox">
         <a href="../cart" class="cartBtn">Cart</a>
     </div>
+    
+    <div class="cartBox">
+        <?php
+            $role = $this->session->userdata('userrole');
+        
+            if($role == "admin"){
+                echo "<a href=\"menu/add-item\" class=\"addBtn\">Add New Item</a>";
+            }
+        ?>
+    </div>
 </div><br>
 
 {content}

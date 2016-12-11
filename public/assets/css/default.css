@@ -93,7 +93,22 @@ footer{
 
 .cartBtn{
     font-size: 28px;
+    color: #eee;
+}
+
+.cartBtn:hover{
+    color: #777;
+    text-decoration: none;
+}
+
+.addBtn{
+    font-size: 28px;
     color: #eee
+}
+
+.addBtn:hover{
+    color: #777;
+    text-decoration: none;
 }
 
 /* ------------------------
