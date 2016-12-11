@@ -10,42 +10,54 @@ class Inventories extends MY_Model {
         parent::__construct();
     }
 
-    // retrieve a single inventory by passing id
-    public function get($which)
+    // retrieve recipes by passing inventory id
+    public function getMenu($id)
     {
-        // iterate over the data until we find the one we want
-        foreach ($this->data as $record)
-                if ($record['id'] == $which)
-                        return $record;
-        return null;
-    }
-
-    // retrieve all of the inventories
-    public function all()
-    {
-        return $this->data;
-    }        
-    
-    // retrieve one single inventory by passing name
-    public function getInventory($which){
-            $source = array();
-            $name = $this->getName($which);
-            // iterate over the data until we find the one we want
-            foreach ($this->data as $record){
-                if ($record['name'] == $name){
-                    $source[] = $record;
+        $recipes = $this->recipes->all();
+        $menus = $this->menu->all();
+        
+        $recipe = array();
+        $menu = array();
+        
+        foreach($recipes as $source) {
+            if($source->inventory_id == $id){
+                    $recipe[] = $source;
+            }
+        }  
+        
+        foreach($recipe as $r) {
+            foreach($menus as $m) {
+                if($r->menu_id == $id){
+                        $menu[] = $m;
                 }
             }
-            return $source;
-	}
+        }
+        
+        return $menu;
+    }    
     
-    // retrieve one inventory name 
-    public function getName($which){
+//    // retrieve one single inventory by passing name
+//    public function getInventory($id){
+//        $source = array();
+//        $name = $this->getName($id);
+//        
+//        $result = $this->all();
+//        // iterate over the data until we find the one we want
+//        foreach ($result as $record){
+//            if ($record->name == $name){
+//                $source[] = $record;
+//            }
+//        }
+//        return $source;
+//    }
+    
+    // retrieve one inventory name by passing id
+    public function getName($id){
+        $result = $this->all();
         // iterate over the data until we find the one we want
-        $href = preg_replace("/[-]/", " ", $which);
-        foreach ($this->data as $record){
-            if ($record['name'] == $href){
-                return $record['name'];
+        foreach ($result as $record){
+            if ($record->id == $id){
+                return $record->name;
             }
         }
         return null;
