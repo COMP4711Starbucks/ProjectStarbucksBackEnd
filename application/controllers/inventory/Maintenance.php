@@ -29,12 +29,31 @@ class Maintenance extends Rest_Controller {
             $this->response($this->inventories->all(), 200);
         } else
         {
-            $result = $this->inventories->get($key);
-            if ($result != null)
-                $this->response($result, 200);
-            else
-                $this->response(array('error' => 'Menu item not found!'), 404);
+                $result = $this->inventories->get($key);
+                if ($result != null)
+                    $this->response($result, 200);
+                else
+                    $this->response(array('error' => 'Menu item not found!'), 404);  
+          
+            
         }
+    }
+    
+    function check_get(){
+        $key = $this->get('id');
+        $result = $this->inventories->all();
+        $t;
+        $get = 0;
+        foreach($result as $r){
+            if($r->name == $key){
+                $get = 1;
+                $t = $r;
+            }
+        }
+        if ($get == 1)
+            $this->response($t, 200);
+        else
+            $this->response(array('error' => 'ok'), 404);  
     }
     
     function item_get()
