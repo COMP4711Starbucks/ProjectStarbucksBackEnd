@@ -148,26 +148,10 @@ INSERT INTO `Recipes` (`menu_id`, `inventory_id`, `quantity`) VALUES
 --
 
 DROP TABLE IF EXISTS `Orders`;
-CREATE TABLE `Orders` (
-  `id` int(11) NOT NULL,
-  `timestamp` datetime NOT NULL,
-  `total` decimal(10,2) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-ALTER TABLE `Orders`
-  ADD PRIMARY KEY (`id`);
 
 DROP TABLE IF EXISTS `Orderitems`;
-CREATE TABLE `Orderitems` (
-  `order_id` int(11) NOT NULL,
-  `menu_id` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL,
-  FOREIGN KEY (`order_id`) REFERENCES `Orders` (`id`),
-  FOREIGN KEY (`menu_id`) REFERENCES `Menu` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-ALTER TABLE `Orderitems`
-  ADD PRIMARY KEY (`order_id`,`menu_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
