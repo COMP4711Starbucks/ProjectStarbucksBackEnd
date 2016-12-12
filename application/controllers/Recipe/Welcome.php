@@ -16,14 +16,19 @@ class Welcome extends Application{
     function __construct()
     {
             parent::__construct();
+            $this->load->model('recipes');
+            $this->data['pagetitle'] = 'Starbuck';
     }
     
     public function index()
     {
         $role = $this->session->userdata('userrole');
-            if($role == "guest"){
-                redirect('/unauthorize');
-            }
+        if($role == "guest"){
+            redirect('/unauthorize');
+        }
+        
+        $this->load->helper('formfields');
+        $this->data['title'] = 'Starbuck(server)';
         //$this->load->model('recipes');
         $this->data['pagebody'] = 'recipy_list';
         $this->data['names'] = $this->recipes->names();
