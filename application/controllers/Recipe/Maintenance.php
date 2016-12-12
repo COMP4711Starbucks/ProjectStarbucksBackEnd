@@ -75,6 +75,19 @@ class Maintenance extends Rest_Controller{
         $this->response(array('ok'), 200);
     }
 
+    function item_put()
+    {
+        $a = $this->get('id');
+        $pieces = explode("-", $a);
+        $key = $pieces[0];
+        if($a!=null){
+            $key1 = $pieces[1]; 
+        }
+        $record = array_merge(array('menu_id' => $key, 'inventory_id'=>$key1), $this->_put_args);
+        $this->recipes->update($record);
+        $this->response(array('ok'), 404);
+    }
+    
     // Handle an incoming POST - Crud
     function index_post()
     {
