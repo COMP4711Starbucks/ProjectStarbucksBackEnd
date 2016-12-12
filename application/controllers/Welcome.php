@@ -19,14 +19,9 @@ class Welcome extends Application
 	 */
 	public function index()
 	{
-            // load models
-            $this->load->model('recipes');
-            $this->load->model('inventories');
-            $this->load->model('menus');
-            
             $this->data['pagebody'] = 'welcome_message';
             
-            $menu = $this->menus->all();
+            $menu = $this->menu->all();
             $count_menu = 0;
             foreach($menu as $m){
                 $count_menu++;

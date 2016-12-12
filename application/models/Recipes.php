@@ -4,92 +4,74 @@
  *
  * @author lizewu
  */
-class Recipes extends CI_Model {
-
-	var $data = array(
-            array('id' => '1', 'menu' => 'Caramel Macchiato', 'item' => 'Milk', 'Quantity' => '2'),
-            array('id' => '2', 'menu' => 'Caramel Macchiato', 'item' => 'Brewed Espresso', 'Quantity' => '1'),
-            array('id' => '3', 'menu' => 'Cappuccino', 'item' => 'Milk', 'Quantity' => '3'),
-            array('id' => '4', 'menu' => 'Cappuccino', 'item' => 'Brewed Espresso','Quantity' => '1'),
-            array('id' => '5', 'menu' => 'Caramel Macchiato', 'item' => 'Vanilla Syrup', 'Quantity' => '1'),
-            array('id' => '6', 'menu' => 'Caramel Macchiato', 'item' => 'Caramel Sauce', 'Quantity' => '1'),
-            array('id' => '7', 'menu' => 'Latte', 'item' => 'Milk', 'Quantity' => '1'),
-            array('id' => '8', 'menu' => 'Latte', 'item' => 'Brewed Espresso', 'Quantity' => '2'),
-            array('id' => '9', 'menu' => 'Mocha', 'item' => 'Whipped Cream', 'Quantity' => '1'),
-            array('id' => '10', 'menu' => 'Mocha', 'item' => 'Brewed Espresso', 'Quantity' => '1'),
-            array('id' => '11', 'menu' => 'Mocha', 'item' => 'Mocha Sauce', 'Quantity' => '1'),
-            array('id' => '12', 'menu' => 'Pumpkin Spice Latte', 'item' => 'Milk', 'Quantity' => '1'),
-            array('id' => '13', 'menu' => 'Pumpkin Spice Latte', 'item' => 'Pumpkin Spice Sauce', 'Quantity' => '1'),
-            array('id' => '14', 'menu' => 'Pumpkin Spice Latte', 'item' => 'Brewed Espresso', 'Quantity' => '1'),
-            array('id' => '15', 'menu' => 'Pumpkin Spice Latte', 'item' => 'Whipped Cream', 'Quantity' => '1'),
-            array('id' => '16', 'menu' => 'Pumpkin Spice Latte', 'item' => 'Pumpkin Spice Topping', 'Quantity' => '1'),
-            array('id' => '17', 'menu' => 'White Chocolate Mocha', 'item' => 'Milk', 'Quantity' => '1'),
-            array('id' => '18', 'menu' => 'White Chocolate Mocha', 'item' => 'White Chocolate Mocha Sauce', 'Quantity' => '1'),
-            array('id' => '19', 'menu' => 'White Chocolate Mocha', 'item' => 'Brewed Espresso', 'Quantity' => '1'),
-            array('id' => '20', 'menu' => 'White Chocolate Mocha', 'item' => 'Whipped Cream', 'Quantity' => '1'),
-            
-            // added more recipe by Tianyang Liu; 'item' is not proper
-            array('id' => '21', 'menu' => 'Blueberry Bar', 'item' => 'Pumpkin Spice Sauce', 'Quantity' => '1'),
-            array('id' => '22', 'menu' => 'Blueberry Bar', 'item' => 'Brewed Espresso', 'Quantity' => '1'),
-            array('id' => '23', 'menu' => 'Blueberry Bar', 'item' => 'Whipped Cream', 'Quantity' => '1'),
-            array('id' => '24', 'menu' => 'Chocolate Cake Pop', 'item' => 'Milk', 'Quantity' => '1'),
-            array('id' => '25', 'menu' => 'Chocolate Cake Pop', 'item' => 'White Chocolate Mocha Sauce', 'Quantity' => '1'),
-            array('id' => '26', 'menu' => 'Chocolate Cake Pop', 'item' => 'Brewed Espresso', 'Quantity' => '1'),
-            array('id' => '27', 'menu' => 'Chocolate Cake Pop', 'item' => 'Whipped Cream', 'Quantity' => '1'),
-            array('id' => '28', 'menu' => 'Blueberry Yogurt & Honey Muffin', 'item' => 'Pumpkin Spice Sauce', 'Quantity' => '1'),
-            array('id' => '29', 'menu' => 'Blueberry Yogurt & Honey Muffin', 'item' => 'Brewed Espresso', 'Quantity' => '1'),
-            array('id' => '30', 'menu' => 'Blueberry Yogurt & Honey Muffin', 'item' => 'Whipped Cream', 'Quantity' => '1'),
-            array('id' => '31', 'menu' => 'Chocolate Mocha', 'item' => 'Milk', 'Quantity' => '1'),
-            array('id' => '32', 'menu' => 'Chocolate Mocha', 'item' => 'White Chocolate Mocha Sauce', 'Quantity' => '1'),
-            array('id' => '33', 'menu' => 'Chocolate Mocha', 'item' => 'Brewed Espresso', 'Quantity' => '1'),
-            array('id' => '34', 'menu' => 'Chocolate Mocha', 'item' => 'Whipped Cream', 'Quantity' => '1'),
-            array('id' => '35', 'menu' => 'Lemon Loaf', 'item' => 'Pumpkin Spice Sauce', 'Quantity' => '1'),
-            array('id' => '36', 'menu' => 'Lemon Loaf', 'item' => 'Brewed Espresso', 'Quantity' => '1'),
-            array('id' => '37', 'menu' => 'Lemon Loaf', 'item' => 'Whipped Cream', 'Quantity' => '1'),
-            array('id' => '38', 'menu' => 'Lemon Loaf', 'item' => 'Milk', 'Quantity' => '1'),
-            array('id' => '39', 'menu' => 'Chocolate Chunk Muffin', 'item' => 'White Chocolate Mocha Sauce', 'Quantity' => '1'),
-            array('id' => '40', 'menu' => 'Chocolate Chunk Muffin', 'item' => 'Brewed Espresso', 'Quantity' => '1'),
-            array('id' => '41', 'menu' => 'Chocolate Chunk Muffin', 'item' => 'Whipped Cream', 'Quantity' => '1'),
-            array('id' => '42', 'menu' => 'Plain Bagel', 'item' => 'Pumpkin Spice Sauce', 'Quantity' => '1'),
-            array('id' => '43', 'menu' => 'Plain Bagel', 'item' => 'Brewed Espresso', 'Quantity' => '1'),
-            array('id' => '44', 'menu' => 'Plain Bagel', 'item' => 'Whipped Cream', 'Quantity' => '1'),
-            array('id' => '45', 'menu' => 'Egg & Cheddar Breakfast Sandwich', 'item' => 'Milk', 'Quantity' => '1'),
-            array('id' => '46', 'menu' => 'Egg & Cheddar Breakfast Sandwich', 'item' => 'White Chocolate Mocha Sauce', 'Quantity' => '1'),
-            array('id' => '47', 'menu' => 'Egg & Cheddar Breakfast Sandwich', 'item' => 'Brewed Espresso', 'Quantity' => '1'),
-            array('id' => '48', 'menu' => 'Egg & Cheddar Breakfast Sandwich', 'item' => 'Whipped Cream', 'Quantity' => '1')
-            
-	);
+class Recipes extends MY_Model2 {
 
 	// Constructor
 	public function __construct(){
             
-            parent::__construct();
+            parent::__construct("Recipes","menu_id","inventory_id");
 	}
 
+        function rules() {
+            $config = [
+                ['field'=>'quantity', 'label'=>'Item name', 'rules'=> 'required|integer']
+            ];
+            return $config;
+        }
 	// retrieve a single menu
-	public function get($which)
+	public function get($which,$key)
 	{
             // iterate over the data until we find the one we want
-            foreach ($this->data as $record){
-                    if ($record['id'] == $which){
+            foreach ($this->all() as $record){
+                    if ($record->menu_id == $which && $record->inventory_id == $key){
                             return $record;
                     }
             }
             return null;
 	}
-
-	// retrieve all of the menus
-	public function all()
-	{
-            return $this->data;
-	}
+//
+//	// retrieve all of the menus
+//	public function all()
+//	{
+//            return $this->data;
+//	}
        
   	public function getRecipe($which){
+            $result = $this->all();
             $recipy = array();
-            $name = $this->getName($which);
+            $menu = $this->menu->all();
+            $item = $this->inventories->all();
+            $name = $which;
             // iterate over the data until we find the one we want
-            foreach ($this->data as $record){
-                if ($record['menu'] == $name){
+            foreach ($result as $record){
+                if ($record->menu_id == $name){
+                    $r['menu'] = $record->menu_id;
+                    $r['item'] = $record->inventory_id;
+                    $r['Quantity'] = $record->quantity;
+                    $r['id'] = $which;
+                    foreach($menu as $m){
+                        if($m->id == $record->menu_id){
+                            $r['menuname'] = $m->name;
+                        }    
+                    }
+                    foreach($item as $i){
+                        if($i->id == $record->inventory_id){
+                            $r['itemname'] = $i->name;
+                        }   
+                    }
+                    $recipy[] = $r;
+                }
+            }
+            return $recipy;
+	}
+        
+        public function getEdit($which){
+            $result = $this->all();
+            $recipy = array();
+            $name = $which;
+            // iterate over the data until we find the one we want
+            foreach ($result as $record){
+                if ($record->menu_id == $name){
                     $recipy[] = $record;
                 }
             }
@@ -98,26 +80,94 @@ class Recipes extends CI_Model {
         
         public function getName($which){
            
+           $menu = $this->menu->all();
             // iterate over the data until we find the one we want
-            foreach ($this->data as $record){
-                if ($record['id'] == $which){
-                    return $record['menu'];
+            
+                foreach($menu as $m){
+                  if ($m->id == $which){
+                    return $m->name;
+                    }    
+                }
+                
+            
+            return null;
+	}
+        public function getItemName($which){
+            $result = $this->all();
+            $item = $this->inventories->all();
+            // iterate over the data until we find the one we want
+            foreach ($item as $record){
+                if ($record->id == $which){
+                    return $record->name;
+                }
+            }
+            return null;
+        }
+        public function getItem($which){
+           $result = $this->all();
+            // iterate over the data until we find the one we want
+            foreach ($result as $record){
+                if ($record->menu_id == $which){
+                    return $record->inventory_id;
                 }
             }
             return null;
 	}
         
-        public function names(){
-           $name = array();
+        public function getItems($id){
+           $result = $this->all();
+           $names = array();
             // iterate over the data until we find the one we want
-            foreach ($this->data as $record){
-                if (!in_array($record['menu'], $name)){
-                    $names[] = array('id' => $record['id'], 'name' => $record['menu']);
-                    $name[] = $record['menu'];
+            foreach ($result as $record){
+                if (!in_array($record->inventory_id, $names) && $record->menu_id == $id){
+                    $names[] = $record->inventory_id;
                 }
             }
             return $names;
 	}
+        
+        public function getNames(){
+           $result = $this->all();
+           $names = array();
+            // iterate over the data until we find the one we want
+            foreach ($result as $record){
+                if (!in_array($record->inventory_id, $names)){
+                    $a['id'] = $record->inventory_id;
+                    $a['item'] = $this->getItemName($record->inventory_id);
+                    $names[] = $a;
+                }
+            }
+            return $names;
+	}
+        
+        public function names(){
+           $name = array();
+           $names = array();
+           $result = $this->all();
+          
+            // iterate over the data until we find the one we want
+            foreach ($result as $record){ 
+                if (!in_array($record->menu_id, $name)){
+                    $names[] = array('id' => $record->menu_id, 'name' => $this->getName($record->menu_id));
+                    $name[] = $record->menu_id;
+                }
+            }
+            
+            return $names;
+	}
+        
+        public function valueForm($id){
+            $result = $this->all();
+          
+            // iterate over the data until we find the one we want
+            foreach ($result as $record){ 
+                if($record->menu_id == $id){ 
+                    return $record;
+                }
+            }
+            return null;
+            
+        }
   
 }
 

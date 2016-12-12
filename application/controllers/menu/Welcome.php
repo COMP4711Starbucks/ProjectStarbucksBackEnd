@@ -8,27 +8,59 @@ class Welcome extends Application{
     }
     
     public function index(){
-        $this->load->model('menus');
-        
         $this->data['pagebody'] = 'menu';
+        $result = $this->menu->all();
+        $this->data['content'] = $result;
+        $this->render();
+    }
+    
+    public function add_item_to_order($what) {
+        $this->createOrder();
         
-        $source = $this->menus->all();
+        $order = new Order($this->session->userdata('order'));
+        $order->additem($what);
         
-        //$menu = array();
-        $drink = array();
-        $food = array();
+        $this->index();
+        $this->session->set_userdata('order',(array)$order);
         
-        foreach($source as $s){
-            if($s['type'] == "drink"){
-                $drink[] = array('name' => $s['name'], 'price' => $s['price'], 'href' => $s['href']);
-            }else if($s['type'] == "food"){
-                $food[] = array('name' => $s['name'], 'price' => $s['price'], 'href' => $s['href']);
+        redirect('/menu');
+    }
+    
+    public function createOrder(){
+        // create a new order if needed
+        if (! $this->session->has_userdata('order')) {
+            $order = new Order();
+            $this->session->set_userdata('order', (array) $order);
+        }
+    }
+    
+    public function sales_order() {
+        // identify all of the order files
+        $this->load->helper('directory');
+        $candidates = directory_map('../data/');
+        $parms = array();
+        foreach ($candidates as $filename) {
+           if (substr($filename,0,5) == 'order') {
+               // restore that order object
+               $order = new Order ('../data/' . $filename);
+            // setup view parameters
+               $parms[] = array(
+                   'number' => $order->number,
+                   'datetime' => $order->datetime,
+                   'total' => $order->total()
+                       );
             }
         }
-        
-        $this->data['drink'] = $drink;
-        $this->data['food'] = $food;
-        
+        $this->data['orders'] = $parms;
+        $this->data['pagebody'] = 'sales_order';
+        $this->render('template');  // use the default template
+    }
+    
+    public function examine($which) {
+        $order = new Order ('../data/order' . $which . '.xml');
+        $stuff = $order->receipt();
+        $this->data['content'] = $this->parsedown->parse($stuff);
+        $this->data['pagebody'] = 'review_order';
         $this->render();
     }
 }
