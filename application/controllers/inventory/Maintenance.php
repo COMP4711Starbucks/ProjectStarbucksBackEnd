@@ -51,7 +51,7 @@ class Maintenance extends Rest_Controller {
             }
         }
         if ($get == 1)
-            $this->response($t, 200);
+            $this->response(array('error' => 'no'), 200);
         else
             $this->response(array('error' => 'ok'), 404);  
     }
