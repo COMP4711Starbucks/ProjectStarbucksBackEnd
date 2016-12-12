@@ -23,7 +23,6 @@ class Maintenance extends Rest_Controller{
         // Handle an incoming GET - cRud
     function index_get()
     {
-        echo 'here';
         $key = $this->get('id');
         if (!$key)
         {
