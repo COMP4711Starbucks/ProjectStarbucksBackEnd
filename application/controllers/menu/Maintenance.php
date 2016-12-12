@@ -37,6 +37,23 @@ class Maintenance extends Rest_Controller{
         }
     }
 
+    function check_get(){
+        $key = $this->get('id');
+        $result = $this->inventories->all();
+        $t;
+        $get = 0;
+        foreach($result as $r){
+            if($r->name == $key){
+                $get = 1;
+                $t = $r;
+            }
+        }
+        if ($get == 1)
+            $this->response($t, 200);
+        else
+            $this->response(array('error' => 'ok'), 404);  
+    }
+    
     function item_get()
     {
         $key = $this->get('id');
